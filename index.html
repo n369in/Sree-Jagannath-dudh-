@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="mr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#14532d">
+<meta name="description" content="श्री जगन्नाथ सहकारी दूध संस्था तळंदगे - ऑफलाइन दूध व आर्थिक हिशोब">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<title>श्री जगन्नाथ दूध संस्था</title>
+<style>
+:root{--green:#14532d;--bg:#f4f7f4;--card:#fff;--line:#dce5dc;--muted:#647067;--red:#b42318}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:system-ui,"Noto Sans Devanagari",sans-serif;color:#17231a}
+header{background:var(--green);color:white;padding:16px 15px 13px;position:sticky;top:0;z-index:3}
+header h1{font-size:19px;margin:0 0 3px}header p{font-size:12px;margin:0;opacity:.9}
+nav{display:flex;overflow:auto;gap:7px;padding:10px;background:#e8efe8;position:sticky;top:69px;z-index:2}
+nav button{white-space:nowrap;border:1px solid #cbd8cb;background:white;border-radius:20px;padding:8px 12px;font-size:13px}
+nav button.active{background:var(--green);color:white;border-color:var(--green)}
+main{padding:12px;max-width:850px;margin:auto}.page{display:none}.page.active{display:block}
+.card{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:13px;margin-bottom:12px;box-shadow:0 1px 2px #00000008}
+h2{font-size:17px;margin:0 0 12px}h3{font-size:14px;margin:0 0 8px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.stat{background:#f0f6f0;border-radius:10px;padding:12px}.stat small{display:block;color:var(--muted);font-size:12px}.stat b{font-size:19px}
+label{display:block;font-size:13px;margin:8px 0 4px;color:#334238}
+input,select{width:100%;padding:10px;border:1px solid #cbd5cb;border-radius:8px;font-size:15px;background:white;color:#17231a}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+button.primary{background:var(--green);color:white;border:0;border-radius:9px;padding:11px 14px;font-size:14px;margin-top:11px}
+button.secondary{background:#edf3ed;border:1px solid #cbd8cb;color:#1e3927;border-radius:9px;padding:9px 12px;font-size:13px}
+button.danger{background:#fff1f0;color:var(--red);border:1px solid #f1c5c1;border-radius:8px;padding:7px 9px}
+table{border-collapse:collapse;width:100%;font-size:13px}td,th{padding:8px 5px;border-bottom:1px solid #e5ebe5;text-align:left}th{color:#536257;font-weight:600}
+.muted{color:var(--muted);font-size:12px}.actions{display:flex;gap:8px;flex-wrap:wrap}
+.notice{background:#fff8e6;border:1px solid #f0dfac;border-radius:9px;padding:10px;font-size:12px;margin-bottom:10px}
+.empty{color:var(--muted);font-size:13px;padding:12px;text-align:center}
+hr{border:0;border-top:1px solid var(--line);margin:12px 0}
+@media(min-width:650px){.grid.four{grid-template-columns:repeat(4,1fr)}}
+@media print{header,nav,.no-print{display:none!important}body{background:white}main{padding:0}.card{box-shadow:none;border:0}}
+</style></head>
+<body>
+<header><h1>श्री जगन्नाथ सहकारी दूध संस्था</h1><p>तळंदगे · दूध संकलन व आर्थिक हिशोब</p></header>
+<nav id="nav">
+<button data-page="home" class="active">मुख्य पान</button><button data-page="producers">उत्पादक</button><button data-page="milk">दूध नोंद</button><button data-page="advance">उचल</button><button data-page="feed">खाद्य</button><button data-page="bill">१० दिवसांचे बिल</button><button data-page="backup">बॅकअप</button>
+</nav>
+<main>
+<section id="home" class="page active">
+<div class="card"><h2>संस्थेचा आढावा</h2><div class="grid four">
+<div class="stat"><small>एकूण उत्पादक</small><b id="dashProducers">0</b></div>
+<div class="stat"><small>आजचे दूध (लिटर)</small><b id="dashMilk">0.0</b></div>
+<div class="stat"><small>उचल बाकी</small><b id="dashAdvance">₹0</b></div>
+<div class="stat"><small>खाद्य बाकी</small><b id="dashFeed">₹0</b></div></div></div>
+<div class="card"><h2>सुरुवात कशी करावी?</h2><ol style="font-size:14px;line-height:1.8;padding-left:22px"><li>प्रथम उत्पादकांची नावे नोंदवा.</li><li>दररोज सकाळ-संध्याकाळ दूध नोंदवा.</li><li>उचल आणि खाद्य व्यवहार स्वतंत्र नोंदवा.</li><li>१० दिवसांचे बिल तयार करून कपात निवडा.</li><li>नियमितपणे बॅकअप फाइल जतन करा.</li></ol></div>
+<div class="notice">या आवृत्तीत फक्त गायीच्या दुधाची नोंद आहे; म्हशीच्या दुधाचा पर्याय नाही. ही पहिली चाचणी आवृत्ती आहे. डेटा या मोबाईलच्या ब्राउझरमध्ये साठतो. ब्राउझरचा डेटा/कॅशे पुसू नका. बॅकअप नियमित घ्या.</div>
+</section>
+<section id="producers" class="page">
+<div class="card"><h2>नवीन उत्पादक नोंदणी</h2>
+<div class="row"><div><label>उत्पादक क्रमांक</label><input id="pNo" placeholder="उदा. 101"></div><div><label>मोबाईल नंबर</label><input id="pPhone" inputmode="numeric" placeholder="मोबाईल"></div></div>
+<label>उत्पादकाचे पूर्ण नाव</label><input id="pName" placeholder="नाव लिहा">
+<div class="row"><div><label>गाव / पत्ता</label><input id="pVillage" value="तळंदगे"></div><div><label>प्रकार</label><select id="pType"><option>गाय</option><option>म्हैस</option><option>गाय व म्हैस</option></select></div></div>
+<div class="row"><div><label>सुरुवातीची उचल बाकी (₹)</label><input type="number" id="pOpenAdv" value="0"></div><div><label>सुरुवातीची खाद्य बाकी (₹)</label><input type="number" id="pOpenFeed" value="0"></div></div>
+<button class="primary" onclick="addProducer()">उत्पादक जतन करा</button></div>
+<div class="card"><h2>उत्पादक यादी</h2><div id="producerList" class="empty">अद्याप उत्पादक नोंदवलेले नाहीत.</div></div>
+</section>
+<section id="milk" class="page">
+<div class="card"><h2>दूध संकलन नोंद</h2>
+<label>उत्पादक</label><select id="mProducer"></select>
+<div class="row"><div><label>दिनांक</label><input type="date" id="mDate"></div><div><label>वेळ</label><select id="mShift"><option>सकाळ</option><option>संध्याकाळ</option></select></div></div>
+<div class="row"><div><label>दुधाचा प्रकार</label><input value="गाय" readonly></div><div><label>लिटर</label><input type="number" step=".01" id="mLitres" placeholder="0.00"></div></div>
+<div class="row"><div><label>फॅट</label><input type="number" step=".01" id="mFat" placeholder="0.0"></div><div><label>SNF</label><input type="number" step=".01" id="mSnf" placeholder="0.0"></div></div>
+<div class="row"><div><label>दर (₹ प्रति लिटर)</label><input type="number" step=".01" id="mRate" placeholder="दर भरा"></div><div><label>रक्कम (आपोआप)</label><input id="mAmount" readonly placeholder="₹0.00"></div></div>
+<button class="primary" onclick="addMilk()">दूध नोंद जतन करा</button><p class="muted">सध्या दर हाताने भरावा लागेल. तुमचे FAT-SNF दरपत्रक जोडल्यावर दर आपोआप काढण्याची सोय करता येईल. उत्पादक नोंदणीवेळी सुरुवातीची जुनी उचल/खाद्य बाकीही भरता येते.</p></div>
+<div class="card"><h2>अलीकडील दूध नोंदी</h2><div id="milkList" class="empty">दूध नोंद उपलब्ध नाही.</div></div>
+</section>
+<section id="advance" class="page">
+<div class="card"><h2>उचल / आर्थिक मदत नोंद</h2><label>उत्पादक</label><select id="aProducer"></select>
+<div class="row"><div><label>दिनांक</label><input type="date" id="aDate"></div><div><label>उचलीचा प्रकार</label><select id="aType"><option>जनावर खरेदी</option><option>आर्थिक मदत</option><option>इतर</option></select></div></div>
+<label>रक्कम (₹)</label><input type="number" id="aAmount" step=".01" placeholder="रक्कम">
+<label>तपशील</label><input id="aNote" placeholder="ऐच्छिक">
+<button class="primary" onclick="addAdvance()">उचल नोंदवा</button></div>
+<div class="card"><h2>उचल व्यवहार</h2><div id="advanceList" class="empty">उचल नोंद उपलब्ध नाही.</div></div>
+</section>
+<section id="feed" class="page">
+<div class="card"><h2>पशुखाद्य विक्री / उधारी</h2><label>उत्पादक</label><select id="fProducer"></select>
+<div class="row"><div><label>दिनांक</label><input type="date" id="fDate"></div><div><label>खाद्य प्रकार</label><select id="fItem"><option>गोळी</option><option>सरकी पेंड</option><option>कपाशी पेंड</option><option>भुसा</option><option>प्रोटीन</option><option>कडबा</option><option>इतर</option></select></div></div>
+<div class="row"><div><label>प्रमाण</label><input type="number" step=".01" id="fQty" placeholder="किलो / नग"></div><div><label>दर (₹)</label><input type="number" step=".01" id="fRate" placeholder="दर"></div></div>
+<div class="row"><div><label>एकूण रक्कम (₹)</label><input id="fAmount" readonly></div><div><label>रोख भरले (₹)</label><input type="number" id="fPaid" value="0" step=".01"></div></div>
+<button class="primary" onclick="addFeed()">खाद्य व्यवहार जतन करा</button></div>
+<div class="card"><h2>खाद्य व्यवहार</h2><div id="feedList" class="empty">खाद्य व्यवहार उपलब्ध नाही.</div></div>
+</section>
+<section id="bill" class="page">
+<div class="card"><h2>१० दिवसांचे दूध बिल</h2><label>उत्पादक</label><select id="bProducer"></select>
+<div class="row"><div><label>पासून</label><input type="date" id="bFrom"></div><div><label>पर्यंत</label><input type="date" id="bTo"></div></div>
+<div class="row"><div><label>उचल कपात (₹)</label><input type="number" id="bAdvDed" value="0" step=".01"></div><div><label>खाद्य कपात (₹)</label><input type="number" id="bFeedDed" value="0" step=".01"></div></div>
+<div class="row"><div><label>इतर कपात (₹)</label><input type="number" id="bOtherDed" value="0" step=".01"></div><div><label>प्रत्यक्ष अदा (₹)</label><input type="number" id="bPaid" value="0" step=".01"></div></div>
+<button class="primary" onclick="makeBill()">बिल तयार करा</button><div id="billResult"></div></div>
+<div class="card"><h2>तयार केलेली बिले</h2><div id="billList" class="empty">बिले उपलब्ध नाहीत.</div></div>
+</section>
+<section id="backup" class="page">
+<div class="card"><h2>डेटा बॅकअप आणि पुनर्संचयित</h2><p class="muted">सर्व उत्पादक, दूध नोंदी, उचल, खाद्य व्यवहार आणि बिले JSON फाइलमध्ये जतन होतील.</p>
+<div class="actions"><button class="primary" onclick="exportData()">बॅकअप डाउनलोड करा</button><button class="secondary" onclick="document.getElementById('restoreFile').click()">बॅकअप परत भरा</button><input id="restoreFile" type="file" accept="application/json" hidden onchange="importData(event)"></div>
+<hr><button class="danger" onclick="clearAll()">सर्व डेटा हटवा</button></div>
+<div class="notice">महत्त्वाचे: फोन बदलण्यापूर्वी बॅकअप डाउनलोड करून नवीन फोनमध्ये तो पुनर्संचयित करा. SMS पाठवणे, क्लाउड सिंक आणि ब्लूटूथ प्रिंटर जोडणे या पुढील आवृत्तीत करता येईल.</div>
+</section>
+</main>
+<script>
+const KEY='jagannath_dairy_v1';
+let db=JSON.parse(localStorage.getItem(KEY)||'{"producers":[],"milk":[],"advances":[],"feed":[],"bills":[]}');
+const $=id=>document.getElementById(id), money=n=>'₹'+(Number(n)||0).toFixed(2), today=new Date().toISOString().slice(0,10);
+['mDate','aDate','fDate'].forEach(id=>$(id).value=today);
+$('mRate').addEventListener('input',calcMilk);$('mLitres').addEventListener('input',calcMilk);
+$('fQty').addEventListener('input',calcFeed);$('fRate').addEventListener('input',calcFeed);
+function save(){localStorage.setItem(KEY,JSON.stringify(db));render()}
+function calcMilk(){$('mAmount').value=money((+$('mLitres').value||0)*(+$('mRate').value||0))}
+function calcFeed(){$('fAmount').value=money((+$('fQty').value||0)*(+$('fRate').value||0))}
+function addProducer(){let name=$('pName').value.trim(),no=$('pNo').value.trim();if(!name||!no)return alert('उत्पादक क्रमांक आणि नाव भरा.');if(db.producers.some(p=>p.no===no))return alert('हा क्रमांक आधीच आहे.');db.producers.push({id:Date.now(),no,name,phone:$('pPhone').value,village:$('pVillage').value,type:$('pType').value,openAdv:+$('pOpenAdv').value||0,openFeed:+$('pOpenFeed').value||0});$('pName').value='';$('pNo').value='';$('pPhone').value='';save()}
+function addMilk(){let pid=+$('mProducer').value;if(!pid)return alert('उत्पादक निवडा.');let l=+$('mLitres').value,r=+$('mRate').value;if(l<=0||r<0)return alert('लिटर आणि दर योग्य भरा.');db.milk.push({id:Date.now(),pid,date:$('mDate').value,shift:$('mShift').value,type:$('mType').value,litres:l,fat:+$('mFat').value||0,snf:+$('mSnf').value||0,rate:r,amount:l*r});save()}
+function addAdvance(){let pid=+$('aProducer').value,amt=+$('aAmount').value;if(!pid||amt<=0)return alert('उत्पादक आणि रक्कम भरा.');db.advances.push({id:Date.now(),pid,date:$('aDate').value,type:$('aType').value,amount:amt,note:$('aNote').value,deducted:0});$('aAmount').value='';save()}
+function addFeed(){let pid=+$('fProducer').value,amt=(+$('fQty').value||0)*(+$('fRate').value||0),paid=+$('fPaid').value||0;if(!pid||amt<=0||paid>amt)return alert('उत्पादक, प्रमाण, दर आणि भरलेली रक्कम तपासा.');db.feed.push({id:Date.now(),pid,date:$('fDate').value,item:$('fItem').value,qty:+$('fQty').value,rate:+$('fRate').value,amount:amt,paid,deducted:0});save()}
+function producer(pid){return db.producers.find(p=>p.id===pid)||{name:'अज्ञात'}}
+function outstandingAdv(pid){let p=producer(pid);return (p.openAdv||0)+db.advances.filter(x=>x.pid===pid).reduce((s,x)=>s+x.amount-x.deducted,0)}
+function outstandingFeed(pid){let p=producer(pid);return (p.openFeed||0)+db.feed.filter(x=>x.pid===pid).reduce((s,x)=>s+x.amount-x.paid-x.deducted,0)}
+function makeBill(){let pid=+$('bProducer').value,from=$('bFrom').value,to=$('bTo').value;if(!pid||!from||!to||from>to)return alert('उत्पादक आणि योग्य दिनांक निवडा.');let entries=db.milk.filter(x=>x.pid===pid&&x.date>=from&&x.date<=to),gross=entries.reduce((s,x)=>s+x.amount,0),ad=+$('bAdvDed').value||0,fd=+$('bFeedDed').value||0,od=+$('bOtherDed').value||0,paid=+$('bPaid').value||0;if(ad>outstandingAdv(pid)||fd>outstandingFeed(pid))return alert('कपात उपलब्ध बाकीपेक्षा जास्त आहे.');let net=gross-ad-fd-od;if(net<0||paid>net)return alert('कपात किंवा अदा रक्कम तपासा.');let b={id:Date.now(),pid,from,to,gross,litres:entries.reduce((s,x)=>s+x.litres,0),ad,fd,od,net,paid,advBal:outstandingAdv(pid)-ad,feedBal:outstandingFeed(pid)-fd};db.bills.push(b);let p=producer(pid),advLeft=ad;let fromOpenAdv=Math.min(advLeft,p.openAdv||0);p.openAdv=(p.openAdv||0)-fromOpenAdv;advLeft-=fromOpenAdv;for(let x of db.advances.filter(x=>x.pid===pid)){let v=Math.min(advLeft,x.amount-x.deducted);x.deducted+=v;advLeft-=v;if(advLeft<=0)break}let feedLeft=fd;let fromOpenFeed=Math.min(feedLeft,p.openFeed||0);p.openFeed=(p.openFeed||0)-fromOpenFeed;feedLeft-=fromOpenFeed;for(let x of db.feed.filter(x=>x.pid===pid)){let v=Math.min(feedLeft,x.amount-x.paid-x.deducted);x.deducted+=v;feedLeft-=v;if(feedLeft<=0)break}save();$('billResult').innerHTML=`<div class="notice"><b>${producer(pid).name}</b><br>एकूण बिल: ${money(gross)}<br>उचल कपात: ${money(ad)}<br>खाद्य कपात: ${money(fd)}<br>इतर कपात: ${money(od)}<br><b>देय रक्कम: ${money(net)}</b><br>प्रत्यक्ष अदा: ${money(paid)}<br>अदा करावयाची शिल्लक: ${money(net-paid)}<br>उचल बाकी: ${money(b.advBal)} · खाद्य बाकी: ${money(b.feedBal)}</div><button class="secondary no-print" onclick="window.print()">बिल प्रिंट करा</button>`}
+function render(){let opts='<option value="">उत्पादक निवडा</option>'+db.producers.map(p=>`<option value="${p.id}">${p.no} - ${p.name}</option>`).join('');['mProducer','aProducer','fProducer','bProducer'].forEach(id=>$(id).innerHTML=opts);
+$('producerList').innerHTML=db.producers.length?`<table><tr><th>क्रमांक</th><th>नाव</th><th>मोबाईल</th><th>उचल बाकी</th><th>खाद्य बाकी</th></tr>${db.producers.map(p=>`<tr><td>${p.no}</td><td>${p.name}</td><td>${p.phone||'-'}</td><td>${money(outstandingAdv(p.id))}</td><td>${money(outstandingFeed(p.id))}</td></tr>`).join('')}</table>`:'<div class="empty">अद्याप उत्पादक नोंदवलेले नाहीत.</div>';
+let ml=[...db.milk].slice(-20).reverse();$('milkList').innerHTML=ml.length?`<table><tr><th>दिनांक</th><th>उत्पादक</th><th>वेळ</th><th>लिटर</th><th>फॅट/SNF</th><th>रक्कम</th></tr>${ml.map(x=>`<tr><td>${x.date}</td><td>${producer(x.pid).name}</td><td>${x.shift}</td><td>${x.litres}</td><td>${x.fat}/${x.snf}</td><td>${money(x.amount)}</td></tr>`).join('')}</table>`:'<div class="empty">दूध नोंद उपलब्ध नाही.</div>';
+$('advanceList').innerHTML=db.advances.length?`<table><tr><th>दिनांक</th><th>उत्पादक</th><th>प्रकार</th><th>रक्कम</th><th>बाकी</th></tr>${db.advances.slice().reverse().map(x=>`<tr><td>${x.date}</td><td>${producer(x.pid).name}</td><td>${x.type}</td><td>${money(x.amount)}</td><td>${money(x.amount-x.deducted)}</td></tr>`).join('')}</table>`:'<div class="empty">उचल नोंद उपलब्ध नाही.</div>';
+$('feedList').innerHTML=db.feed.length?`<table><tr><th>दिनांक</th><th>उत्पादक</th><th>खाद्य</th><th>रक्कम</th><th>बाकी</th></tr>${db.feed.slice().reverse().map(x=>`<tr><td>${x.date}</td><td>${producer(x.pid).name}</td><td>${x.item}</td><td>${money(x.amount)}</td><td>${money(x.amount-x.paid-x.deducted)}</td></tr>`).join('')}</table>`:'<div class="empty">खाद्य व्यवहार उपलब्ध नाहीत.</div>';
+$('billList').innerHTML=db.bills.length?`<table><tr><th>कालावधी</th><th>उत्पादक</th><th>बिल</th><th>अदा</th><th>देय बाकी</th></tr>${db.bills.slice().reverse().map(x=>`<tr><td>${x.from} ते ${x.to}</td><td>${producer(x.pid).name}</td><td>${money(x.gross)}</td><td>${money(x.paid)}</td><td>${money(x.net-x.paid)}</td></tr>`).join('')}</table>`:'<div class="empty">बिले उपलब्ध नाहीत.</div>';
+$('dashProducers').textContent=db.producers.length;$('dashMilk').textContent=db.milk.filter(x=>x.date===today).reduce((s,x)=>s+x.litres,0).toFixed(1);$('dashAdvance').textContent=money(db.producers.reduce((s,p)=>s+outstandingAdv(p.id),0));$('dashFeed').textContent=money(db.producers.reduce((s,p)=>s+outstandingFeed(p.id),0));
+}
+function exportData(){let blob=new Blob([JSON.stringify(db,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='jagannath-dairy-backup-'+today+'.json';a.click();URL.revokeObjectURL(a.href)}
+function importData(e){let f=e.target.files[0];if(!f)return;let r=new FileReader();r.onload=()=>{try{let d=JSON.parse(r.result);if(!d.producers||!d.milk||!d.advances||!d.feed||!d.bills)throw 0;if(!confirm('सध्याचा डेटा बदलून बॅकअपमधील डेटा भरायचा?'))return;db=d;save();alert('बॅकअप पुनर्संचयित झाला.')}catch(err){alert('ही योग्य बॅकअप फाइल नाही.')}};r.readAsText(f)}
+function clearAll(){if(confirm('सर्व डेटा कायमचा हटवायचा आहे का? आधी बॅकअप घ्या.')){db={producers:[],milk:[],advances:[],feed:[],bills:[]};save()}}
+$('nav').addEventListener('click',e=>{let b=e.target.closest('button[data-page]');if(!b)return;document.querySelectorAll('nav button').forEach(x=>x.classList.toggle('active',x===b));document.querySelectorAll('.page').forEach(x=>x.classList.toggle('active',x.id===b.dataset.page))});
+render();
+if ('serviceWorker' in navigator) { window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(()=>{})); }
+</script></body></html>
